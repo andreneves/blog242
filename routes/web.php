@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\CategoriaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 // Funcionario
 Route::get('/funcionario', [FuncionarioController::class, 'index']);
+
+
+// categoria
+
+Route::get('/categoria', [CategoriaController::class, 'index'])->name('categoria.index');
