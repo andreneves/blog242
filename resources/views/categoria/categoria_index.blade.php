@@ -7,6 +7,8 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
+                <a href="{{ url('/categoria/create') }}" class="btn btn-success btn-lg active" role="button" aria-pressed="true">CRIAR</a>
+
                 <table>
                     <tr>
                         <th>ID</th>
@@ -18,7 +20,11 @@
                         <tr>
                             <td>{{ $value->id }}</td>
                             <td>{{ $value->nome }}</td>
-                            <td></td>
+                            <td>
+                            <a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
+
+
+                            </td>
                         </tr>
                     @endforeach
 
