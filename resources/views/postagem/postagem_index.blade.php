@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <a href="{{ url('/categoria/create') }}" class="btn btn-success" role="button" aria-pressed="true">CRIAR</a>
+                <a href="{{ url('/postagem/create') }}" class="btn btn-success" role="button" aria-pressed="true">CRIAR</a>
 
                 @if (session('mensagem'))
                     <br>
@@ -25,20 +25,22 @@
                 <table>
                     <tr>
                         <th>ID</th>
-                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Título</th>
                         <th>Ações</th>
                     </tr>
 
-                    @foreach($categorias as $value)
+                    @foreach($postagens as $value)
                         <tr>
                             <td>{{ $value->id }}</td>
-                            <td>{{ $value->nome }}</td>
+                            <td>{{ $value->categoria->nome }}</td>
+                            <td>{{ $value->titulo }}</td>
                             <td>
-                            <a href="{{ url('/categoria/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
+                            <a href="{{ url('/postagem/' . $value->id) }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Visualizar</a>
 
-                            <a href="{{ url('/categoria/' . $value->id . '/edit') }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Editar</a>
+                            <a href="{{ url('/postagem/' . $value->id . '/edit') }}" class="btn btn-warning btn-lg active" role="button" aria-pressed="true">Editar</a>
 
-                            <form method='POST' action='{{ url('/categoria/' . $value->id) }}' onsubmit="return ConfirmDelete()">
+                            <form method='POST' action='{{ url('/postagem/' . $value->id) }}' onsubmit="return ConfirmDelete()">
                                 @method('DELETE')
                                 @csrf
                                 <input type='submit' class="btn btn-danger btn-lg active" value='Excluir'>
