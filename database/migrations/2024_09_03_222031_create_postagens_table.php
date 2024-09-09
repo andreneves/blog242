@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('categoria_id');
             $table->bigInteger('user_id');
             $table->string('titulo');
-            $table->text('conteudo');
+            $table->longText('conteudo');
             $table->timestamps();
         });
     }
