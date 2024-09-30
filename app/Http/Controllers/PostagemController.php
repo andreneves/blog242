@@ -83,7 +83,10 @@ class PostagemController extends Controller
     {
 
         // 1 - pegar o conteudo do arquivo
-        $content = file_get_contents($request->file('imagem'));
+        if($request->file('imagem')){
+            $content = file_get_contents($request->file('imagem'));
+        }
+
 
         $validated = $request->validate([
             'categoria_id' => 'required',
@@ -97,7 +100,9 @@ class PostagemController extends Controller
         $postagem->categoria_id = $request->categoria_id;
         $postagem->user_id = Auth::id();
         // 3 - converter para base64
-        $postagem->imagem = base64_encode($content);
+        if($request->file('imagem')){
+            $postagem->imagem = base64_encode($content);
+        }
         $postagem->titulo = $request->titulo;
         $postagem->conteudo = $request->conteudo;
         $postagem->save();
