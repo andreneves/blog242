@@ -5,6 +5,7 @@ use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\FeedController;
+use App\Http\Controllers\ComentarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,12 @@ Route::get('/feed/categoria/{id}', [FeedController::class, 'categoriaById'])->na
 
 Route::get('/feed/autor', [FeedController::class, 'autor'])->name('feed.autor');
 Route::get('/feed/autor/{id}', [FeedController::class, 'autorById'])->name('feed.autorById');
+
+// /feed/postagem/' . $value->id . '/comentario
+Route::get('/feed/postagem/{id}/comentario', [FeedController::class, 'comentario'])->name('comentario');
+
+Route::post('comentario', [ComentarioController::class, 'store'])->name('comentario.store');
+
 
 
 Auth::routes();
