@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('postagens', function (Blueprint $table) {
+        Schema::create('curtidas', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('categoria_id');
+            $table->bigInteger('postagem_id');
             $table->bigInteger('user_id');
-            $table->longText('imagem')->nullable();
-            $table->string('titulo');
-            $table->longText('conteudo');
-            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
@@ -28,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('postagens');
+        Schema::dropIfExists('curtidas');
     }
 };

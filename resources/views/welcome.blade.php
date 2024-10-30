@@ -21,8 +21,9 @@
     <footer>
         <ul class="stats">
             <li><a href="{{ url('/feed/categoria/' . $value->id) }}">{{ $value->categoria->nome }}</a></li>
-            <li><a href="#" class="icon solid fa-heart">28</a></li>
+            <li><a href="{{ url('/feed/curtida/' . $value->id) }}" class="icon solid fa-heart">{{ $value->curtidas->count() }}</a></li>
             <li><a href="{{ url('/feed/postagem/' . $value->id . '/comentario') }}" class="icon solid fa-comment">{{ $value->comentarios->count() }}</a></li>
+            <li><a href="{{ url('/feed/denunciarPostagem/' . $value->id) }}" class="icon solid fa-comment">Denunciar postagem</a></li>
         </ul>
     </footer>
 

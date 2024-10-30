@@ -37,7 +37,11 @@ Route::get('/feed/postagem/{id}/comentario', [FeedController::class, 'comentario
 
 Route::post('comentario', [ComentarioController::class, 'store'])->name('comentario.store');
 
+Route::get('/feed/curtida/{id}', [FeedController::class, 'curtida'])->middleware('auth')->name('curtida');
 
+Route::get('/feed/denunciarPostagem/{id}', [FeedController::class, 'denunciarPostagem'])->middleware('auth')->name('denunciarPostagem');
+
+Route::post('/feed/denunciarPostagem', [FeedController::class, 'denunciarPostagemStore'])->middleware('auth')->name('denunciarPostagem.store');
 
 Auth::routes();
 
