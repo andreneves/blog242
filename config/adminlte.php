@@ -335,6 +335,12 @@ return [
             'icon' => 'fas fa-fw fa-user',
         ],
         [
+            'text' => 'Moderação Denúncias de Postagem',
+            'url' => 'ModeracaoDenunciaPostagem',
+            'icon' => 'fas fa-fw fa-user',
+            'can' => 'is_admin',
+        ],
+        [
             'text' => 'profile',
             'url' => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',

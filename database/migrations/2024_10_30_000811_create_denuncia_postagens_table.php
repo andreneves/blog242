@@ -16,7 +16,7 @@ return new class extends Migration
             $table->bigInteger('postagem_id');
             $table->bigInteger('user_id');
             $table->text('conteudo');
-            $table->enum('status', ['AGUARDANDO', 'ACEITA', 'NEGADA'])->default('AGUARDANDO');
+            $table->enum('status', ['AGUARDANDO', 'ACEITO', 'NEGADO'])->default('AGUARDANDO');
             $table->timestamps();
         });
     }

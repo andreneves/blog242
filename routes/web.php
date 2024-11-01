@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\PostagemController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\ModeracaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,13 @@ Route::post('/feed/denunciarPostagem', [FeedController::class, 'denunciarPostage
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
+
+
+    Route::get('ModeracaoDenunciaPostagem', [ModeracaoController::class, 'ModeracaoDenunciaPostagem'])->name('ModeracaoDenunciaPostagem');
+    Route::get('ModeracaoDenunciaPostagemAceito/{id}', [ModeracaoController::class, 'ModeracaoDenunciaPostagemAceito'])->name('ModeracaoDenunciaPostagemAceito');
+    Route::get('ModeracaoDenunciaPostagemNegado/{id}', [ModeracaoController::class, 'ModeracaoDenunciaPostagemNegado'])->name('ModeracaoDenunciaPostagemNegado');
+
+
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

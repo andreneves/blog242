@@ -16,7 +16,7 @@ class FeedController extends Controller
 {
 
     public function welcome(){
-        $postagens = Postagem::orderBy('id', 'DESC')->get();
+        $postagens = Postagem::where('status', 1)->orderBy('id', 'DESC')->get();
         return view('welcome', compact('postagens'));
     }
 
